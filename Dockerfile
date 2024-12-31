@@ -9,7 +9,8 @@ ENV DISPLAY=:99
 WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
+RUN mkdir -p ./downloads
+RUN chmod 777 -R ./downloads
 COPY . .
 EXPOSE 8080
-# Run the app
 CMD ["node", "download_ms_stream.js"]
