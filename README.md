@@ -16,8 +16,8 @@ This project provides a Dockerized solution to download recorded videos from **M
 
 1. **Clone the Repository**:
    ```bash
-   git clone <repository-url>
-   cd <repository-folder>
+   git clone git@github.com:rMi99/ms-teams-stream-downloader.git
+   cd ms-teams-stream-downloader
    ```
 
 2. **Build the Docker Image**:
@@ -53,5 +53,3 @@ This project is licensed under the MIT License.
 - **Setup Instructions**: Steps to build and run the Docker image.
 - **Customization**: How to change credentials and video URL.
 - **License**: Specifies the license type.
-
-# ms-teams-stream-downloader
