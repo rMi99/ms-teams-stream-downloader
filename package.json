@@ -1,0 +1,17 @@
+{
+  "name": "ms-teams-downloader",
+  "version": "1.0.0",
+  "description": "This project provides a Dockerized solution to download recorded videos from **Microsoft Teams** or **MS Stream** using **Selenium** with **Chromium** (headless) for automated login and **ffmpeg** for video processing.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "rMi99",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "ffmpeg-static": "^5.2.0",
+    "puppeteer": "^23.11.1"
+  }
+}

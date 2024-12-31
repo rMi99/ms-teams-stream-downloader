@@ -1,28 +1,15 @@
-FROM ubuntu:20.04
-ENV DEBIAN_FRONTEND=noninteractive
+FROM node:20-buster
 RUN apt-get update && apt-get install -y \
-    python3-pip \
-    python3-venv \
-    wget \
-    curl \
+    chromium \
     ffmpeg \
-    unzip \
-    chromium-browser \
-    libx11-xcb1 \
-    libxcomposite1 \
-    libxdamage1 \
-    libxi6 \
-    libxtst6 \
-    xdg-utils \
-    ca-certificates \
     && rm -rf /var/lib/apt/lists/*
-RUN pip3 install selenium
-RUN wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip \
-    && unzip chromedriver_linux64.zip -d /usr/local/bin \
-    && rm chromedriver_linux64.zip
-ENV CHROME_BIN=/usr/bin/chromium-browser
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+ENV CHROME_BIN=/usr/bin/chromium
 ENV DISPLAY=:99
-RUN apt-get install -y xvfb
-WORKDIR /data
-COPY download_ms_stream.py /data/
-CMD ["bash"]
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 8080
+# Run the app
+CMD ["node", "download_ms_stream.js"]
